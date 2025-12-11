@@ -53,7 +53,6 @@ export async function saveProfile(stats: UserStats) {
         daily_protein_goal: goals.daily_protein_goal,
         daily_carbs_goal: goals.daily_carbs_goal,
         daily_fat_goal: goals.daily_fat_goal,
-        is_onboarding_completed: true,
         updated_at: new Date().toISOString(),
     });
 
