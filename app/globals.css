@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* 
+    🎨 1. Kapsayıcı Renk Paleti (Ana Palet)
+    Primary: #2D6CDF -> 219 71% 53%
+    Secondary: #4BD4B3 -> 165 59% 56%
+    Accent: #FF9E57 -> 25 100% 67%
+    Danger: #FF5E5E -> 0 100% 68%
+    Background: #F6F7F9 -> 220 14% 97%
+    Foreground: #1A1A1A -> 0 0% 10%
+    Muted: #6F6F6F -> 0 0% 44%
+    Border: #E4E6E9 -> 216 11% 91%
+  */
+
+  --primary: 219 71% 53%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 165 59% 56%;
+  --secondary-foreground: 0 0% 100%;
+
+  --accent: 25 100% 67%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 100% 68%;
+  --destructive-foreground: 0 0% 100%;
+
+  --background: 220 14% 97%;
+  --foreground: 0 0% 10%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
+
+  --muted: 220 14% 96%;
+  /* Slightly darker than bg for muted areas */
+  --muted-foreground: 0 0% 44%;
+
+  --border: 216 11% 91%;
+  --input: 216 11% 91%;
+  --ring: 219 71% 53%;
+
+  /* Macro Colors */
+  --macro-protein: 250 100% 69%;
+  /* #7B61FF */
+  --macro-carbs: 219 71% 53%;
+  /* #2D6CDF */
+  --macro-fat: 25 100% 67%;
+  /* #FF9E57 */
+  --macro-calories: 0 100% 68%;
+  /* #FF5E5E */
+
+  /* Radius */
+  --radius: 1rem;
+  /* 16px for Cards */
+  --radius-sm: 0.75rem;
+  /* 12px for Buttons/Inputs */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  /* Minimal soft shadow */
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #2D6CDF 0%, #1F54B5 100%);
+  --gradient-surface: linear-gradient(180deg, #FFFFFF 0%, #F6F7F9 100%);
+}
+
+.dark {
+  --background: 222 47% 11%;
+  --foreground: 210 40% 98%;
+
+  --card: 222 47% 11%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 217 91% 60%;
+  --primary-foreground: 222 47.4% 11.2%;
+
+  --secondary: 217 19% 27%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217 19% 27%;
+  --muted-foreground: 215 20.2% 65.1%;
+
+  --accent: 217 19% 27%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 217 19% 27%;
+  --input: 217 19% 27%;
+  --ring: 224 76% 48%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Modern Button Styles (12px radius) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  padding: 0.875rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border: none;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  box-shadow: 0 4px 12px rgba(45, 108, 223, 0.2);
+  /* Soft blue shadow */
+}
+
+.btn-primary:hover {
+  background-color: #1F54B5;
+  /* Darker blue on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(45, 108, 223, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid hsl(var(--primary));
+  color: hsl(var(--primary));
+}
+
+.btn-outline:hover {
+  background: hsla(var(--primary), 0.05);
+}
+
+/* Card Styles (16px radius, minimal shadow) */
+.card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: #D1D5DB;
+}
+
+/* Modern Input (12px radius) */
+.input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid hsl(var(--border));
+  background: #FFFFFF;
+  font-family: inherit;
+  font-size: 1rem;
+  color: hsl(var(--foreground));
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.input:focus {
+  outline: none;
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsla(var(--primary), 0.15);
+}
+
+.input::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+
+/* Macro Colors Utilities */
+.text-protein {
+  color: hsl(var(--macro-protein));
+}
+
+.bg-protein {
+  background-color: hsl(var(--macro-protein));
+}
+
+.text-carbs {
+  color: hsl(var(--macro-carbs));
+}
+
+.bg-carbs {
+  background-color: hsl(var(--macro-carbs));
+}
+
+.text-fat {
+  color: hsl(var(--macro-fat));
+}
+
+.bg-fat {
+  background-color: hsl(var(--macro-fat));
+}
+
+.text-calories {
+  color: hsl(var(--macro-calories));
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 10px;
+}
+
+
+/* Responsive Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
