@@ -146,7 +146,8 @@ export default async function Home() {
             lineHeight: 1.1,
             color: "#1a1a1a"
           }}>
-            utku <span style={{ color: "hsl(var(--primary))" }}>tarhan</span>
+            Yediğini <span style={{ color: "hsl(var(--primary))" }}>Tanı</span>,<br />
+            Sağlığını Yönet.
           </h1>
 
           <p style={{
