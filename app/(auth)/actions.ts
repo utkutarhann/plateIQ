@@ -43,7 +43,13 @@ export async function signup(formData: FormData) {
 }
 
 export async function signInWithGoogle() {
-    const origin = (await headers()).get("origin");
+    const headersList = await headers();
+    const host = headersList.get("host");
+    let origin = "https://plateio.vercel.app";
+
+    if (host && host.includes("localhost")) {
+        origin = `http://${host}`;
+    }
     const supabase = await createClient();
 
     const { data, error } = await supabase.auth.signInWithOAuth({
