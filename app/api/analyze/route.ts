@@ -116,7 +116,7 @@ export async function POST(request: Request) {
                 },
             ],
             response_format: { type: "json_object" },
-            max_tokens: 500,
+            max_tokens: 1500,
         });
 
         const responseContent = response.choices[0].message.content;
