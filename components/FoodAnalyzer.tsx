@@ -142,6 +142,10 @@ export default function FoodAnalyzer({ isAuthenticated = true }: { isAuthenticat
             console.log("API response received", { status: response.status });
             const data = await response.json();
 
+            if (data.error) {
+                throw new Error(data.error);
+            }
+
             if (!response.ok) {
                 console.error("API error:", data);
                 // Handle rate limit specifically

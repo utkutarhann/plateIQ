@@ -106,7 +106,9 @@ export async function POST(request: Request) {
             ],
             "confidence_score": 0-100 arası güven skoru
           }
-          Sadece JSON döndür, başka açıklama yapma.`,
+          Sadece JSON döndür, başka açıklama yapma.
+          Eğer görselde yemek yoksa veya analiz edilemiyorsa şu JSON'u döndür:
+          { "error": "Görselde yemek tespit edilemedi. Lütfen net bir yemek fotoğrafı yükleyin." }`,
                 },
                 {
                     role: "user",
