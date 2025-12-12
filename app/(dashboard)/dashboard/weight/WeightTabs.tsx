@@ -8,7 +8,9 @@ import MeasurementEntryForm from "@/components/MeasurementEntryForm";
 
 interface WeightTabsProps {
     userId: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     weightLogs: any[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     measurementLogs: any[];
     currentWeight: number;
     change: number;

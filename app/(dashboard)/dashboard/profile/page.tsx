@@ -91,21 +91,4 @@ export default async function ProfilePage() {
     );
 }
 
-function StatCard({ label, current, target, unit, color }: { label: string, current: number, target: number, unit: string, color: string }) {
-    const percentage = Math.min(100, Math.round((current / target) * 100));
 
-    return (
-        <div className="card" style={{ padding: "1.25rem" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}>
-                <span style={{ fontSize: "0.875rem", color: "hsl(var(--muted-foreground))" }}>{label}</span>
-                <span style={{ fontSize: "0.75rem", fontWeight: "bold", color: color }}>{percentage}%</span>
-            </div>
-            <div style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "0.5rem" }}>
-                {Math.round(current)} <span style={{ fontSize: "0.875rem", color: "hsl(var(--muted-foreground))", fontWeight: "normal" }}>/ {target} {unit}</span>
-            </div>
-            <div style={{ width: "100%", height: "8px", backgroundColor: "hsl(var(--secondary) / 0.1)", borderRadius: "999px", overflow: "hidden" }}>
-                <div style={{ width: `${percentage}%`, height: "100%", backgroundColor: color, transition: "width 0.5s ease" }} />
-            </div>
-        </div>
-    );
-}

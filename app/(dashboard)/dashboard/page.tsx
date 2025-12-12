@@ -1,10 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
-import Link from "next/link";
-import FoodAnalyzer from "@/components/FoodAnalyzer";
-import AdUnit from "@/components/AdUnit";
-import GoalCelebration from "@/components/GoalCelebration";
-import SuccessToast from "@/components/SuccessToast";
 import DashboardView from "@/components/DashboardView";
 
 export default async function Dashboard() {
@@ -73,7 +68,7 @@ export default async function Dashboard() {
         fat: calculatedGoals.daily_fat_goal || 70
     };
 
-    const remainingCalories = goals.calories - consumed.calories;
+    // const remainingCalories = goals.calories - consumed.calories; // Unused
     const progress = Math.min(100, (consumed.calories / goals.calories) * 100);
 
     const isGoalMet = progress >= 100;
@@ -88,3 +83,4 @@ export default async function Dashboard() {
         />
     );
 }
+

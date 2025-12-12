@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import { calculateGoals, UserProfile } from "@/lib/calculate-goals";
+import { calculateGoals } from "@/lib/calculate-goals";
 
 // Define the input type expected from the client form
 export interface UserStats {
@@ -13,7 +13,6 @@ export interface UserStats {
     goal: 'lose_weight' | 'maintain' | 'gain_muscle';
     bodyType: 'ectomorph' | 'mesomorph' | 'endomorph';
 }
-import { redirect } from "next/navigation";
 
 export async function saveProfile(stats: UserStats) {
     const supabase = await createClient();
